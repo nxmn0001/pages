@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Saya - NIXY</title>
+    <meta name="description" content="Selamat datang di portfolio pribadi saya. Lihat proyek, keahlian, dan pengalaman saya.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Reset & Basic Styles */
+        :root {
+            --primary-color: #3b82f6;
+            --background-color: #111827;
+            --surface-color: #1f2937;
+            --text-color: #f9fafb;
+            --muted-color: #9ca3af;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #60a5fa;
+        }
+        h1, h2 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 40px; }
+        section {
+            padding: 60px 0;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--surface-color);
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .nav-links a {
+            margin-left: 25px;
+            font-weight: 500;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            padding-top: 140px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--muted-color);
+            margin-bottom: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .project-card {
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 20px;
+        }
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .project-info p {
+            color: var(--muted-color);
+            font-size: 0.95rem;
+        }
+
+        /* About & Contact Section */
+        #about p, #contact p {
+            max-width: 700px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--surface-color);
+            color: var(--muted-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--surface-color);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">NIXY</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#projects">Proyek</a>
+                <a href="#about">Tentang</a>
+                <a href="#contact">Kontak</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka Menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="subtitle">Halo, saya NIXY</p>
+                    <h1>Web Developer & Desainer Kreatif</h1>
+                    <p>Saya menciptakan solusi web yang modern, fungsional, dan ramah pengguna untuk membantu bisnis berkembang di dunia digital.</p>
+                    <a href="#projects" class="cta-button">Lihat Karya Saya</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Proyek Unggulan</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/3b82f6/f9fafb?text=Proyek+Satu" alt="Gambar Proyek Satu">
+                        <div class="project-info">
+                            <h3>Website Perusahaan</h3>
+                            <p>Desain ulang website perusahaan X dengan fokus pada pengalaman pengguna dan peningkatan konversi.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/10b981/f9fafb?text=Proyek+Dua" alt="Gambar Proyek Dua">
+                        <div class="project-info">
+                            <h3>Aplikasi E-commerce</h3>
+                            <p>Membangun platform e-commerce yang cepat dan responsif menggunakan teknologi web modern.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/ef4444/f9fafb?text=Proyek+Tiga" alt="Gambar Proyek Tiga">
+                        <div class="project-info">
+                            <h3>Landing Page Produk</h3>
+                            <p>Membuat landing page yang menarik untuk peluncuran produk baru dengan optimasi SEO.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>Tentang Saya</h2>
+                <p>Saya adalah seorang web developer dengan semangat tinggi untuk belajar dan menciptakan hal-hal baru. Dengan pengalaman di bidang front-end dan back-end, saya mampu mengubah ide kompleks menjadi kenyataan digital yang elegan dan efisien.</p>
+                <p>Keahlian utama saya meliputi HTML, CSS, JavaScript, dan berbagai framework modern. Saya percaya bahwa kolaborasi yang baik adalah kunci dari proyek yang sukses.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Hubungi Saya</h2>
+                <p>Tertarik untuk bekerja sama atau ingin bertanya lebih lanjut? Jangan ragu untuk menghubungi saya melalui email.</p>
+                <a href="mailto:emailanda@contoh.com" class="cta-button">Kirim Email</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 NIXY. Dibuat dengan penuh semangat.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Tutup menu saat link di-klik (untuk mobile)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
