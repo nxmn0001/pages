@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nxmn0001.github.io/pages/sitemap.xml
